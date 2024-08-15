@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styledate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Pantalla Principal -->
+    <div id="main-screen">
+        <header class="header">
+            <h1>Styledate</h1>
+            <button class="btn-profesionales" onclick="showProfessionalForm()">Profesionales</button>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Buscar salones, dirección o teléfono">
+        </div>
+
+        <div class="gallery">
+            <h2>Salones Populares</h2>
+            <div class="salon-container">
+                <!-- Salones carrusel -->
+                <div class="salon-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Salon 1">
+                    <p>Salon 1</p>
+                </div>
+                <div class="salon-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Salon 2">
+                    <p>Salon 2</p>
+                </div>
+                <div class="salon-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Salon 3">
+                    <p>Salon 3</p>
+                </div>
+                <div class="salon-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Salon 4">
+                    <p>Salon 4</p>
+                </div>
+                <div class="salon-item">
+                    <img src="https://via.placeholder.com/200x150" alt="Salon 5">
+                    <p>Salon 5</p>
+                </div>
+                <!-- Añadir más salones aquí -->
+            </div>
+        </div>
+
+        <div class="map">
+            <h2>Encuentra un salón cercano</h2>
+            <div id="map-container">
+                <!-- Aquí iría el mapa interactivo -->
+                <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+
+        <!-- Barra de Navegación Inferior -->
+        <footer class="footer">
+            <div class="nav-bar">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-icon">📅</div>
+                <div class="nav-icon">👤</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Pantalla de Registro de Profesionales -->
+    <div id="professional-form-screen" style="display:none;">
+        <header class="header">
+            <h1>Registro de Profesionales</h1>
+        </header>
+
+        <div class="form-container">
+            <form>
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="salon-name">Nombre del Salón:</label>
+                <input type="text" id="salon-name" name="salon-name" required>
+                
+                <label for="specialty">Especialidad:</label>
+                <input type="text" id="specialty" name="specialty" required>
+                
+                <input type="submit" value="Registrar">
+            </form>
+        </div>
+
+        <!-- Barra de Navegación Inferior -->
+        <footer class="footer">
+            <div class="nav-bar">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-icon">📅</div>
+                <div class="nav-icon">👤</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showProfessionalForm() {
+            document.getElementById('main-screen').style.display = 'none';
+            document.getElementById('professional-form-screen').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

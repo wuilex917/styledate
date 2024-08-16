@@ -1,204 +1,285 @@
-/* Estilos Generales */
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Estilo general para el cuerpo de la página */
 body {
-    font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c;
-    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #232323;
+    color: #dcdcdc;
 }
 
-/* Estilo del Encabezado */
+/* Estilo para el encabezado, que está fijo en la parte superior */
 .header {
-    background-color: #222;
-    color: #f39c12;
-    padding: 15px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #f39c12;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    align-items: flex-start;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #b08d4f;
 }
 
-.header h1 {
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: 3px;
     margin: 0;
-    font-size: 22px;
-    text-shadow: 2px 2px #000;
 }
 
+/* Estilo para el botón de profesionales */
 .btn-profesionales {
-    background-color: #f39c12;
-    color: #000;
-    border: 2px solid #e67e22;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-size: 12px;
+    position: absolute;
+    right: 50px;
+    bottom: 10px;
+    background-color: #c6a15b;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 15px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
 }
 
 .btn-profesionales:hover {
-    background-color: #e67e22;
-    transform: translateY(-2px);
+    background-color: #b18d4f;
 }
 
-/* Estilo del Contenedor del Buscador */
+body {
+    padding-top: 100px;
+}
+
+/* Estilo para el contenedor de la barra de búsqueda */
 .search-container {
-    padding: 20px;
-    background-color: #333;
-    border-bottom: 1px solid #f39c12;
-}
-
-.search-bar {
-    width: 100%;
-    padding: 15px;
-    font-size: 14px;
-    border: 2px solid #f39c12;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #222;
-    color: #fff;
     text-align: center;
+    margin: 20px 0;
 }
 
-/* Estilo de la Galería de Salones Populares */
+/* Estilo para la barra de búsqueda */
+.search-bar {
+    padding: 15px;
+    width: 80%;
+    max-width: 600px;
+    font-size: 18px;
+    border: 2px solid #b08d4f;
+    border-radius: 50px;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.search-bar::placeholder {
+    color: #666;
+}
+
+/* Estilo para el carrusel de categorías */
+.category-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    background-color: #282828;
+    border-bottom: 1px solid #b08d4f;
+}
+
+/* Estilo para cada elemento del carrusel de categorías */
+.category-item {
+    flex: 0 0 auto;
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative; /* Posicionamiento relativo para el texto */
+    overflow: hidden; /* Oculta partes de la imagen que sobresalen */
+}
+
+.category-item img {
+    width: 100%; /* Asegura que la imagen ocupe todo el círculo */
+    height: 100%;
+    object-fit: cover; /* Cubre el área del círculo sin distorsionar la imagen */
+    border-radius: 50%; /* Mantiene la forma circular */
+    position: absolute; /* Posiciona la imagen detrás del texto */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Asegura que la imagen esté detrás del texto */
+}
+
+.category-item span {
+    position: relative; /* Posicionamiento relativo del texto */
+    z-index: 2; /* Asegura que el texto esté delante de la imagen */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor legibilidad */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Efecto hover para los círculos de categorías */
+.category-item:hover {
+    transform: scale(1.1);
+    background-color: #2c2c2c;
+}
+
+/* Estilo para la galería de salones */
 .gallery {
-    padding: 20px;
-    background: linear-gradient(145deg, #2c3e50, #34495e);
-    border-radius: 10px;
-    margin: 20px;
+    padding: 30px;
+    background-color: #282828;
+    color: #fff;
 }
 
 .gallery h2 {
-    font-size: 18px;
-    color: #f39c12;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px #000;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 34px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #f0f0f0;
 }
 
-/* Contenedor del carrusel de salones */
-.salon-container {
+/* Estilo para el carrusel de salones */
+.carousel {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding: 10px;
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px #000;
+    scroll-behavior: smooth;
 }
 
+/* Estilo para cada salón en el carrusel */
 .salon-item {
-    flex: 0 0 auto;
+    background-color: #1f1f1f;
+    height: 200px;
     width: 200px;
-    height: 250px;
-    background-color: #333;
-    border: 2px solid #f39c12;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
-    scroll-snap-align: start;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    flex: 0 0 auto;
+    margin-right: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    overflow: hidden; /* Oculta partes de la imagen que sobresalen */
 }
 
 .salon-item img {
-    width: 100%;
-    height: 150px;
-    border-bottom: 2px solid #f39c12;
+    width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+    height: 100%;
+    object-fit: cover; /* Cubre el área del salón sin distorsionar la imagen */
+    border-radius: 15px; /* Mantiene los bordes redondeados */
 }
 
-.salon-item p {
-    padding: 10px;
-    margin: 0;
-    color: #f39c12;
-}
-
+/* Efecto hover para los salones */
 .salon-item:hover {
     transform: scale(1.05);
+    background-color: #2c2c2c;
 }
 
-/* Estilo del Mapa */
+/* Estilo para la sección del mapa */
 .map {
-    padding: 20px;
-    margin: 20px;
-    background: linear-gradient(145deg, #2c3e50, #34495e);
-    border-radius: 10px;
+    padding: 50px;
+    background-color: #232323;
+    color: #fff;
 }
 
 .map h2 {
-    font-size: 18px;
-    color: #f39c12;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px #000;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #f0f0f0;
 }
 
+/* Contenedor del mapa de Google */
 #map-container {
     width: 100%;
-    height: 300px;
-    border: 2px solid #f39c12;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    height: 400px;
+    background-color: #343434;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Estilo de la Pantalla de Registro de Profesionales */
+/* Estilo para el formulario de profesionales */
 .form-container {
-    padding: 20px;
-    background-color: #2c3e50;
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    background-color: #282828;
+    color: #fff;
 }
 
-.form-container form {
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #f0f0f0;
+}
+
+form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.form-container label {
-    color: #f39c12;
-    margin-bottom: 5px;
-}
-
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="tel"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 2px solid #f39c12;
-    border-radius: 5px;
-    background-color: #34495e;
-    color: #fff;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.form-container input[type="submit"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f39c12;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.form-container input[type="submit"]:hover {
-    background-color: #e67e22;
-    transform: translateY(-2px);
-}
-
-/* Barra de Navegación Inferior */
-.footer {
-    background-color: #333;
-    border-top: 2px solid #f39c12;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: left;
     width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #555;
+    border-radius: 50px;
+    background-color: #232323;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+form input[type="submit"] {
+    background-color: #c6a15b;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+form input[type="submit"]:hover {
+    background-color: #b18d4f;
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+    border-top: 1px solid #b08d4f;
 }
 
 .nav-bar {
@@ -207,7 +288,15 @@ body {
 }
 
 .nav-icon {
-    font-size: 20px;
-    color: #f39c12;
+    font-size: 24px;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-icon:hover {
+    color: #c6a15b;
+}
+
+body {
+    padding-bottom: 60px;
 }
